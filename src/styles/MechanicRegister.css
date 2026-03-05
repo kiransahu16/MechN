@@ -129,7 +129,7 @@
 .form-section-title {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -143,16 +143,20 @@
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 24px;
 }
 
 .form-grid .full-width {
   grid-column: 1 / -1;
 }
 
+.form-grid .reg-input-group {
+  margin-bottom: 0;
+}
+
 /* Input Groups */
 .reg-input-group {
-  margin-bottom: 4px;
+  margin-bottom: 20px;
 }
 
 .reg-input-group label {
@@ -168,13 +172,13 @@
 .reg-input-group select,
 .reg-input-group textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 14px 16px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 12px;
   color: #ffffff;
   font-family: 'Outfit', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   transition: all 0.3s ease;
   outline: none;
 }
@@ -205,17 +209,17 @@
 .checkbox-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .checkbox-chip {
-  padding: 8px 16px;
+  padding: 10px 18px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   color: #94a3b8;
   font-family: 'Outfit', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   user-select: none;
@@ -236,7 +240,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 16px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -247,16 +251,16 @@
 .toggle-label {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .toggle-label .title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 .toggle-label .desc {
-  font-size: 12px;
+  font-size: 13px;
   color: #64748b;
 }
 
@@ -265,6 +269,7 @@
   width: 48px;
   height: 26px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .toggle-switch input {
@@ -307,17 +312,17 @@
 
 /* Location Detect */
 .location-detect-btn {
-  padding: 10px 20px;
+  padding: 12px 20px;
   background: rgba(0, 255, 136, 0.1);
   border: 1px solid rgba(0, 255, 136, 0.2);
   color: #00FF88;
   border-radius: 10px;
   font-family: 'Outfit', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .location-detect-btn:hover {
@@ -327,7 +332,7 @@
 /* Submit Button */
 .btn-register-submit {
   width: 100%;
-  padding: 16px;
+  padding: 18px;
   background: linear-gradient(135deg, #00FF88, #00cc6a);
   color: #050505;
   border: none;
@@ -338,7 +343,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .btn-register-submit:hover {
@@ -357,9 +362,9 @@
   background: rgba(255, 59, 59, 0.1);
   border: 1px solid rgba(255, 59, 59, 0.2);
   color: #ff6b6b;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -368,9 +373,9 @@
   background: rgba(0, 255, 136, 0.1);
   border: 1px solid rgba(0, 255, 136, 0.2);
   color: #00FF88;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -379,7 +384,7 @@
 .time-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px;
 }
 
 /* Responsive */
@@ -398,5 +403,9 @@
 
   .register-header h1 {
     font-size: 28px;
+  }
+
+  .time-grid {
+    grid-template-columns: 1fr;
   }
 }
