@@ -1,0 +1,523 @@
+/* ===== SOS EMERGENCY PAGE ===== */
+
+.sos-page {
+  min-height: 100vh;
+  background: #050505;
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff;
+  padding: 80px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Red emergency glow */
+.sos-blob-1 {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 59, 59, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+  top: -150px;
+  left: -150px;
+  animation: sosBlobPulse 3s ease-in-out infinite;
+}
+
+.sos-blob-2 {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 59, 59, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  bottom: -100px;
+  right: -100px;
+  animation: sosBlobPulse 4s ease-in-out infinite reverse;
+}
+
+@keyframes sosBlobPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Top Bar */
+.sos-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 59, 59, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.sos-topbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.sos-topbar .logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ff3b3b, #cc0000);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(255, 59, 59, 0.4);
+  animation: logoEmergencyPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes logoEmergencyPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 59, 59, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(255, 59, 59, 0.7); }
+}
+
+.sos-topbar .logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.sos-topbar .logo-text span {
+  color: #ff3b3b;
+}
+
+.sos-topbar .emergency-label {
+  color: #ff3b3b;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: emergencyBlink 1s ease-in-out infinite;
+}
+
+@keyframes emergencyBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.btn-back-sos {
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-back-sos:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* SOS Container */
+.sos-container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Big SOS Button */
+.sos-main-section {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sos-main-section h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #ff3b3b;
+}
+
+.sos-main-section p {
+  color: #94a3b8;
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+.sos-big-button {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3b3b, #cc0000);
+  border: none;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 40px rgba(255, 59, 59, 0.3), 0 0 80px rgba(255, 59, 59, 0.15);
+  animation: sosBtnPulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.sos-big-button .sub-text {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+@keyframes sosBtnPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(255, 59, 59, 0.3), 0 0 80px rgba(255, 59, 59, 0.15); transform: scale(1); }
+  50% { box-shadow: 0 0 60px rgba(255, 59, 59, 0.5), 0 0 120px rgba(255, 59, 59, 0.25); transform: scale(1.05); }
+}
+
+.sos-big-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 80px rgba(255, 59, 59, 0.5), 0 0 150px rgba(255, 59, 59, 0.3);
+}
+
+.sos-big-button:active {
+  transform: scale(0.95);
+}
+
+.sos-big-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: none;
+}
+
+/* SOS rings animation */
+.sos-big-button::before,
+.sos-big-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 59, 59, 0.3);
+  animation: sosRing 2s ease-out infinite;
+}
+
+.sos-big-button::after {
+  animation-delay: 1s;
+}
+
+@keyframes sosRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Problem Selector */
+.sos-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.sos-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.problem-option {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #94a3b8;
+}
+
+.problem-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.problem-option.selected {
+  background: rgba(255, 59, 59, 0.08);
+  border-color: rgba(255, 59, 59, 0.3);
+  color: #ff6b6b;
+}
+
+.problem-option .problem-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.problem-option .problem-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Location Display */
+.sos-location {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid rgba(0, 255, 136, 0.1);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.sos-location .loc-icon {
+  font-size: 24px;
+}
+
+.sos-location .loc-info {
+  flex: 1;
+}
+
+.sos-location .loc-info .loc-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00FF88;
+}
+
+.sos-location .loc-info .loc-coords {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Nearest Mechanics in SOS */
+.sos-mechanic-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.sos-mechanic-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 255, 136, 0.15);
+}
+
+.sos-mechanic-info h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.sos-mechanic-info .sos-meta {
+  font-size: 12px;
+  color: #64748b;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sos-mechanic-info .sos-meta .green {
+  color: #00FF88;
+}
+
+.sos-mechanic-info .sos-meta .star {
+  color: #facc15;
+}
+
+.sos-call-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00FF88, #00cc6a);
+  color: #050505;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.sos-call-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  transform: translateY(-1px);
+}
+
+/* SOS Active State */
+.sos-active-banner {
+  background: rgba(255, 59, 59, 0.1);
+  border: 1px solid rgba(255, 59, 59, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%, 100% { border-color: rgba(255, 59, 59, 0.2); }
+  50% { border-color: rgba(255, 59, 59, 0.5); }
+}
+
+.sos-active-banner h2 {
+  color: #ff3b3b;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.sos-active-banner p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.sos-active-banner .sos-timer {
+  font-family: 'Space Mono', monospace;
+  font-size: 36px;
+  color: #ff3b3b;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.btn-cancel-sos {
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+}
+
+.btn-cancel-sos:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Description Input */
+.sos-description {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  min-height: 70px;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.sos-description:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 15px rgba(255, 59, 59, 0.1);
+}
+
+.sos-description::placeholder {
+  color: #475569;
+}
+
+/* Nearby Safe Spots */
+.safe-spots-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.safe-spot {
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.safe-spot:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.safe-spot .spot-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.safe-spot .spot-name {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Loading spinner */
+.sos-loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.sos-loading .spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 59, 59, 0.1);
+  border-top: 3px solid #ff3b3b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sos-page {
+    padding: 80px 12px 40px;
+  }
+
+  .sos-big-button {
+    width: 160px;
+    height: 160px;
+    font-size: 28px;
+  }
+
+  .problem-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .safe-spots-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
