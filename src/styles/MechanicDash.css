@@ -1,0 +1,494 @@
+/* ===== MECHANIC DASHBOARD ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+.mech-dash-page {
+  min-height: 100vh;
+  background: #050505;
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff;
+  padding: 80px 20px 40px;
+  position: relative;
+}
+
+.mech-dash-page .auth-blob-1 {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,136,0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  top: -100px;
+  right: -100px;
+}
+
+/* Top Bar */
+.mech-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.mech-topbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.mech-topbar .logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #00FF88, #00993f);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.mech-topbar .logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.mech-topbar .logo-text span {
+  color: #00FF88;
+}
+
+.mech-topbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-mech-action {
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-mech-action:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.btn-mech-logout {
+  padding: 8px 18px;
+  background: rgba(255, 59, 59, 0.08);
+  border: 1px solid rgba(255, 59, 59, 0.2);
+  color: #ff6b6b;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-mech-logout:hover {
+  background: rgba(255, 59, 59, 0.15);
+}
+
+/* Container */
+.mech-dash-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Shop Header Card */
+.mech-shop-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mech-shop-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00FF88, #00cc6a, #00FF88);
+}
+
+.mech-shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.mech-shop-info h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.mech-shop-info .shop-address {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.mech-status-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.status-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
+  color: #64748b;
+}
+
+.status-btn.available-active {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: rgba(0, 255, 136, 0.3);
+  color: #00FF88;
+}
+
+.status-btn.busy-active {
+  background: rgba(255, 187, 0, 0.1);
+  border-color: rgba(255, 187, 0, 0.3);
+  color: #ffbb00;
+}
+
+.status-btn.closed-active {
+  background: rgba(255, 59, 59, 0.1);
+  border-color: rgba(255, 59, 59, 0.3);
+  color: #ff6b6b;
+}
+
+.status-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Stats Grid */
+.mech-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mech-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mech-stat-card:hover {
+  border-color: rgba(0, 255, 136, 0.15);
+  transform: translateY(-2px);
+}
+
+.mech-stat-card .stat-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mech-stat-card .stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #00FF88;
+  display: block;
+  font-family: 'Space Mono', monospace;
+}
+
+.mech-stat-card .stat-label {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Tabs */
+.mech-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.mech-tab {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mech-tab:hover {
+  color: #94a3b8;
+}
+
+.mech-tab.active {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00FF88;
+}
+
+/* Section */
+.mech-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.mech-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Review Card */
+.mech-review-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.mech-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mech-review-user {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mech-review-stars {
+  color: #facc15;
+  font-size: 14px;
+}
+
+.mech-review-text {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.mech-review-meta {
+  font-size: 12px;
+  color: #475569;
+  display: flex;
+  gap: 12px;
+}
+
+/* Service Request Card */
+.mech-request-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.mech-request-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.request-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 59, 59, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.request-icon.completed {
+  background: rgba(0, 255, 136, 0.08);
+}
+
+.request-details {
+  flex: 1;
+}
+
+.request-details h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.request-details .request-meta {
+  font-size: 12px;
+  color: #64748b;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.request-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.request-status.searching {
+  background: rgba(255, 187, 0, 0.1);
+  color: #ffbb00;
+  border: 1px solid rgba(255, 187, 0, 0.2);
+}
+
+.request-status.completed {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00FF88;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+/* Info Grid */
+.mech-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.mech-info-item {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+.mech-info-item .info-label {
+  font-size: 12px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.mech-info-item .info-value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Tags */
+.mech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.mech-tag {
+  padding: 6px 14px;
+  background: rgba(0, 255, 136, 0.06);
+  border: 1px solid rgba(0, 255, 136, 0.12);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #00FF88;
+}
+
+/* Empty State */
+.mech-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: #475569;
+}
+
+.mech-empty .empty-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mech-dash-page {
+    padding: 80px 12px 40px;
+  }
+
+  .mech-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mech-shop-header {
+    flex-direction: column;
+  }
+
+  .mech-shop-info h1 {
+    font-size: 22px;
+  }
+
+  .mech-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mech-tabs {
+    flex-wrap: wrap;
+  }
+
+  .mech-status-toggle {
+    flex-wrap: wrap;
+  }
+}

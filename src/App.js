@@ -5,6 +5,7 @@ import Signup from './pages/Auth/Signup';
 import SearchMechanic from './pages/User/SearchMechanic';
 import MechanicRegister from './pages/Mechanic/MechanicRegister';
 import MechanicProfile from './pages/Mechanic/MechanicProfile';
+import MechanicDashboard from './pages/Mechanic/MechanicDashboard';
 import SOSEmergency from './pages/User/SOSEmergency';
 import WriteReview from './pages/User/WriteReview';
 import DIYFixes from './pages/User/DIYFixes';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/search" element={<SearchMechanic />} />
         <Route path="/mechanic/register" element={<MechanicRegister />} />
+        <Route path="/mechanic/dashboard" element={<MechanicDashboard />} />
         <Route path="/mechanic/:id" element={<MechanicProfile />} />
         <Route path="/mechanic/:id/review" element={<WriteReview />} />
         <Route path="/sos" element={<SOSEmergency />} />
