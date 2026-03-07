@@ -8,6 +8,7 @@ import MechanicProfile from './pages/Mechanic/MechanicProfile';
 import SOSEmergency from './pages/User/SOSEmergency';
 import WriteReview from './pages/User/WriteReview';
 import DIYFixes from './pages/User/DIYFixes';
+import UserDashboard from './pages/User/UserDashboard';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/mechanic/:id/review" element={<WriteReview />} />
         <Route path="/sos" element={<SOSEmergency />} />
         <Route path="/diy" element={<DIYFixes />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
       </Routes>
     </Router>
   );
