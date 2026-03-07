@@ -6,6 +6,7 @@ import SearchMechanic from './pages/User/SearchMechanic';
 import MechanicRegister from './pages/Mechanic/MechanicRegister';
 import MechanicProfile from './pages/Mechanic/MechanicProfile';
 import SOSEmergency from './pages/User/SOSEmergency';
+import WriteReview from './pages/User/WriteReview';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/search" element={<SearchMechanic />} />
         <Route path="/mechanic/register" element={<MechanicRegister />} />
         <Route path="/mechanic/:id" element={<MechanicProfile />} />
+        <Route path="/mechanic/:id/review" element={<WriteReview />} />
         <Route path="/sos" element={<SOSEmergency />} />
       </Routes>
     </Router>
