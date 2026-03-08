@@ -11,6 +11,7 @@ import SOSEmergency from './pages/User/SOSEmergency';
 import WriteReview from './pages/User/WriteReview';
 import DIYFixes from './pages/User/DIYFixes';
 import UserDashboard from './pages/User/UserDashboard';
+import EditProfile from './pages/User/EditProfile';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import AboutUs from './pages/Common/AboutUs';
 import ContactUs from './pages/Common/ContactUs';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/sos" element={<SOSEmergency />} />
         <Route path="/diy" element={<DIYFixes />} />
         <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
